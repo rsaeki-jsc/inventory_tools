@@ -1,0 +1,15 @@
+ # 参照：https://note.com/outlifest/n/n0cde712924d2
+ 
+#Dockerのコンテナの情報(なんでもいい)
+services:
+  python:
+    restart: always
+    build: .
+    # コンテナの名前
+    container_name: 'inventory_tool'
+    # 仮想環境に入ったあとの作業ディレクトリ名
+    working_dir: '/work/'
+    tty: true
+    # ローカルに存在するディレクトリ(./work)とコンテナ内のディレクトリ(/root/work)を同期させるための設定
+    volumes:
+      - ./work:/root/work
